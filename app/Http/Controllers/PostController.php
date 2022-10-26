@@ -44,7 +44,7 @@ class PostController extends ApiController
 
     public function update(Request $request ,Post $post){
 
-       
+
         //validate
         $validate  = Validator::make($request->all(),[
            'title'=>'required|string',
@@ -65,6 +65,17 @@ class PostController extends ApiController
 
 
     }
+
+
+    public function destroy(Post $post){
+
+      
+        $post->deletePost($post);
+
+         return $this->successResponse(200,$post,'deleted Post successFully');
+
+     }
+
 
 
 

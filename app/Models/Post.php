@@ -40,7 +40,7 @@ class Post extends Model
         if($request->has('image')){
 
           //  unlink(str_replace('public','storage', $post->image));
-          
+
             $imagePath = Carbon::now()->microsecond.'.'.$request->image->extension();
             $request->image->storeAs('image/posts',$imagePath,'public');
         }
@@ -55,6 +55,10 @@ class Post extends Model
     }
 
 
+    public function deletePost(Post $post){
+
+        $post->delete();
+    }
 
 
 
