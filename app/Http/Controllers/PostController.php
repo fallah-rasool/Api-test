@@ -41,6 +41,10 @@ class PostController extends ApiController
 
     }
 
+    public function show(Post $post){
+        return $this->successResponse(200,$post,'getOk');
+    }
+
 
     public function update(Request $request ,Post $post){
 
@@ -69,7 +73,7 @@ class PostController extends ApiController
 
     public function destroy(Post $post){
 
-      
+
         $post->deletePost($post);
 
          return $this->successResponse(200,$post,'deleted Post successFully');

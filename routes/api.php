@@ -30,5 +30,5 @@ Route::put('posts/{post}',[PostController::class,'update']);
 
 Route::delete('posts/{post}',[PostController::class,'destroy']);
 
-
+Route::get('posts/{post}',[PostController::class,'show']);
 
