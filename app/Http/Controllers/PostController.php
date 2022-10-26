@@ -24,7 +24,7 @@ class PostController extends ApiController
         $validate  = Validator::make($request->all(),[
             'title'=>'required|string',
             'slug'=>'required|string',
-            'image'=>'required|string',
+            'image'=>'required|image',
             'content'=>'required|string',
             'user_id'=>'required',
         ]);
