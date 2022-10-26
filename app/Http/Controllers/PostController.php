@@ -41,4 +41,31 @@ class PostController extends ApiController
 
     }
 
+
+    public function update(Request $request ,Post $post){
+
+       
+        //validate
+        $validate  = Validator::make($request->all(),[
+           'title'=>'required|string',
+           'slug'=>'required|string',
+           'image'=>'image',
+           'content'=>'required|string',
+           'user_id'=>'required',
+       ]);
+       if($validate->fails()){
+           return $this->errorResponse(400, $validate->messages());
+       }
+
+        //  updataPost
+
+        $post->updataPost($request,$post);
+
+        return $this->successResponse(200,$post,'updata Post successFully');
+
+
+    }
+
+
+
 }

@@ -31,4 +31,35 @@ class Post extends Model
         ]);
     }
 
+
+    public function updataPost(Request $request,Post $post){
+
+
+        //$imagePath =$post->image;
+
+        if($request->has('image')){
+
+          //  unlink(str_replace('public','storage', $post->image));
+          
+            $imagePath = Carbon::now()->microsecond.'.'.$request->image->extension();
+            $request->image->storeAs('image/posts',$imagePath,'public');
+        }
+
+        $this->update([
+            'title'=>$request->title,
+            'slug'=>$request->slug,
+            'image'=>$request->has('image') ? $imagePath : $this->image,
+            'content'=>$request->get('content'),
+            'user_id'=>1
+        ]);
+    }
+
+
+
+
+
+
+
+
+
 }
