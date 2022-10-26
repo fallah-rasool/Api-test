@@ -16,10 +16,10 @@ class PostController extends ApiController
 
         $posts = Post::all();
 
-        return new PostCollection($posts);
+      //  return new PostCollection($posts);
 
 
-      //  return $this->successResponse(200,PostResource::collection($posts),'okConnect');
+        return $this->successResponse(200,PostResource::collection($posts),'okConnect');
 
         // return $this->successResponse(200,new PostResource($posts)  ,'okConnect');
 
