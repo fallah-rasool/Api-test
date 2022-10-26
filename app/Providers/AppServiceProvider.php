@@ -24,6 +24,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        JsonResource::wrap('rasool');
+       // JsonResource::wrap('rasool');
+
+       JsonResource::withoutWrapping();
     }
 }
