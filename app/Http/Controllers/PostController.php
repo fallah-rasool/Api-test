@@ -54,9 +54,11 @@ class PostController extends ApiController
 
     public function show(Post $post){
 
-        $dataResponse =  new PostResource($post);
+      //  $dataResponse =  new PostResource($post);
 
-        return $this->successResponse(200,$dataResponse,'getOk');
+      //  return $this->successResponse(200,$dataResponse,'getOk');
+
+      return new PostResource($post);
 
     }
 
