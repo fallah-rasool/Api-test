@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use App\Http\Resources\PostResource;
+use App\Http\Resources\PostCollection;
 use Illuminate\Support\Facades\Validator;
 
 
@@ -15,8 +16,10 @@ class PostController extends ApiController
 
         $posts = Post::all();
 
+        return new PostCollection($posts);
 
-        return $this->successResponse(200,PostResource::collection($posts),'okConnect');
+
+      //  return $this->successResponse(200,PostResource::collection($posts),'okConnect');
 
         // return $this->successResponse(200,new PostResource($posts)  ,'okConnect');
 
