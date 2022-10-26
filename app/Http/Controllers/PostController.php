@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use App\Http\Resources\PostResource;
 use Illuminate\Support\Facades\Validator;
 
 
@@ -42,7 +43,11 @@ class PostController extends ApiController
     }
 
     public function show(Post $post){
-        return $this->successResponse(200,$post,'getOk');
+
+        $dataResponse =  new PostResource($post);
+
+        return $this->successResponse(200,$dataResponse,'getOk');
+
     }
 
 
