@@ -32,6 +32,3 @@ Route::delete('posts/{post}',[PostController::class,'destroy']);
 
 Route::get('posts/{post}',[PostController::class,'show']);
 
-
-Route::apiResource('users', UserController::class);
-

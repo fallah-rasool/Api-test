@@ -13,7 +13,14 @@ class PostController extends ApiController
 
     public function index(){
 
-        return $this->successResponse(200,Post::all(),'okConnect');
+        $posts = Post::all();
+
+
+        return $this->successResponse(200,PostResource::collection($posts),'okConnect');
+
+        // return $this->successResponse(200,new PostResource($posts)  ,'okConnect');
+
+    //    return $this->successResponse(200,Post::all(),'okConnect');
 
     }
 
