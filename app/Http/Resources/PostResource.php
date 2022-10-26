@@ -6,7 +6,7 @@ use Illuminate\Http\Resources\Json\JsonResource;
 
 class PostResource extends JsonResource
 {
-    public static $wrap ="ali";
+   // public static $wrap ="ali";
 
     public function toArray($request)
     {
