@@ -28,14 +28,18 @@ class PostController extends ApiController
 
     $posts = Post::paginate(3);
 
-    return $this->successResponse(200 , [
+    // return $this->successResponse(200 , [
 
-     'posts' =>  PostResource::collection($posts),
+    //  'posts' =>  PostResource::collection($posts),
 
-     'links' => PostResource::collection($posts)->response()->getData()->links,
-     
-     'meta' => PostResource::collection($posts)->response()->getData()->meta,
-    ],'okConnect');
+    //  'links' => PostResource::collection($posts)->response()->getData()->links,
+
+    //  'meta' => PostResource::collection($posts)->response()->getData()->meta,
+    // ],'okConnect');
+
+   
+    return PostResource::collection($posts);
+
 
 
 
