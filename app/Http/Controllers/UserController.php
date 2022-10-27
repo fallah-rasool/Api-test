@@ -3,21 +3,25 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Traits\ApiRescponse;
 use Illuminate\Http\Request;
 use App\Http\Resources\UserResource;
 
 class UserController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    use ApiRescponse;
+
+
     public function index()
     {
         $user = User::all();
 
-        return UserResource::collection($user->load('posts'));
+     //   return UserResource::collection($user->load('posts'));
+
+        $dataResponse = UserResource::collection($user->load('posts'));
+
+        return $this->successResponse(200,$dataResponse,'get user successFully');
+
 
     }
 
