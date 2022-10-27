@@ -58,7 +58,15 @@ class PostController extends ApiController
 
       //  return $this->successResponse(200,$dataResponse,'getOk');
 
-      return new PostResource($post);
+     // return new PostResource($post);
+
+     $dataResponse =  new PostResource($post);
+
+     return $dataResponse->additional([
+          'food' =>[
+              'slug'=>$post->slug,
+          ]
+      ]);
 
     }
 
